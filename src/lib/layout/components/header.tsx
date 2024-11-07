@@ -1,6 +1,5 @@
-import { Box, Flex } from '@chakra-ui/react';
-
 import { ColorModeButton } from '@/components/ui/color-mode';
+import { Box, Flex } from '@chakra-ui/react';
 
 export const Header = () => {
   return (
