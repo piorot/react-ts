@@ -27,7 +27,8 @@
         "noUnusedImports": "error",
         "noUnusedVariables": "error",
         "noUnusedFunctionParameters": "error",
-        "useHookAtTopLevel": "error"
+        "useHookAtTopLevel": "error",
+        "useExhaustiveDependencies": "off"
       },
       "nursery": {
         "noDuplicateElseIf": "error"
@@ -55,8 +56,8 @@
         }
       },
       "suspicious": {
-        "noConsole": "error",
-        "noConsoleLog": "error",
+        "noConsole": "off",
+        "noConsoleLog": "off",
         "noEmptyBlockStatements": "error",
         "useAwait": "error"
       }
