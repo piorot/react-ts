@@ -1,15 +1,16 @@
 import type { ImagePreviewProps } from '@/components/ui/image-preview';
 import { useCallback, useState } from 'react';
 import type { ProfileCompareProps } from "@/components/charts/profile-compare.tsx";
+import type { ProcessingStatus } from "@/hooks/common.ts";
 
-type DryRunStatus = 'IDLE' | 'LOADING' | 'ERROR';
+
 
 
 
 
 type UseDryRun = [
     (ean: string) => Promise<void>,
-    DryRunStatus,
+    ProcessingStatus,
         ImagePreviewProps & ProfileCompareProps,
 ];
 export const useDryRun = (): UseDryRun => {

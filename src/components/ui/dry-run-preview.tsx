@@ -1,13 +1,18 @@
 import { ImagePreview } from '@/components/ui/image-preview';
 import { useDryRun } from '@/hooks/use-dry-run';
 import { Box, Button, Flex, Grid, Input } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ProfileCompare } from "@/components/charts/profile-compare.tsx";
-
+import { useMetricsList } from "@/hooks/use-metrics-list.tsx";
 
 export const DryRunPreview = () => {
     const [ean, setEan] = useState<string>('5000112651331');
     const [trigger, status, data] = useDryRun();
+    const [metricListTrigger, , metricList] = useMetricsList()
+
+    useEffect(() => {
+        metricListTrigger()
+    }, [metricListTrigger])
 
     return (
         <Grid gap={4}>
@@ -21,6 +26,10 @@ export const DryRunPreview = () => {
                 <Button variant="outline" onClick={() => setEan('5900541011853')}>
                     Żywiec 1,2l
                 </Button>
+
+                {metricList?.map(m => <Button key={m} variant="outline" onClick={() => setEan(m)}>
+                        {m}
+                    </Button>)}
 
                 <Flex>
                     <Input
@@ -40,14 +49,12 @@ export const DryRunPreview = () => {
                     {status === 'IDLE' && (
                         <>
                             <ImagePreview image={data.image} mse={data.mse} />
-                            <ProfileCompare reference={data.reference} profile={data.profile}/>
+                            <ProfileCompare reference={data.reference} profile={data.profile} />
                         </>
-                            )}
+                    )}
 
-
-
-                        </Box>
-                        </section>
-                        </Grid>
-                        );
-                    };
+                </Box>
+            </section>
+        </Grid>
+    );
+};

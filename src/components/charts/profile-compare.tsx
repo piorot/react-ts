@@ -8,8 +8,7 @@ export interface ProfileCompareProps {
 
 export const ProfileCompare: FunctionComponent<ProfileCompareProps> = (props) => {
 
-
-   // console.log(VictoryTheme.clean.palette)
+    //https://commerce.nearform.com/open-source/victory/docs/introduction/
 
     return (
         <>
@@ -32,7 +31,7 @@ export const ProfileCompare: FunctionComponent<ProfileCompareProps> = (props) =>
                     style={{
 
                         axis: {
-                            stroke: "transparent",
+                            stroke: "#d9d9d9",
                         },
                         axisLabel: {
                             fontSize: 8,
@@ -43,8 +42,9 @@ export const ProfileCompare: FunctionComponent<ProfileCompareProps> = (props) =>
                         },
                         grid: {
                             stroke: "#d9d9d9",
+                            size:5
 
-                        },
+                        } as { stroke:string,size:number },
                     }}
                 />
 
