@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ColorModeButton } from "@/components/ui/color-mode";
 import { Box, Flex } from "@chakra-ui/react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Header = () => {
   return (
