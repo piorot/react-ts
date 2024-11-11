@@ -1,7 +1,10 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.1/schema.json",
   "files": {
-    "include": ["src", "*.config.ts"]
+    "include": [
+      "src",
+      "*.config.ts"
+    ]
   },
   "organizeImports": {
     "enabled": true
@@ -51,7 +54,9 @@
         "useFilenamingConvention": {
           "level": "error",
           "options": {
-            "filenameCases": ["kebab-case"]
+            "filenameCases": [
+              "kebab-case"
+            ]
           }
         }
       },
@@ -70,7 +75,10 @@
   },
   "overrides": [
     {
-      "include": ["src/lib/pages/**/*", "*.ts"],
+      "include": [
+        "src/lib/pages/**/*",
+        "*.ts"
+      ],
       "linter": {
         "rules": {
           "style": {

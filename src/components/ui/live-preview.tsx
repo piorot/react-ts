@@ -1,15 +1,20 @@
-import { ImagePreview } from "@/components/ui/image-preview";
-import { useEffect } from "react";
-import { useLivePreview } from "@/hooks/use-live-preview";
+import {ImagePreview} from "@/components/ui/image-preview";
+import {useEffect} from "react";
+import {useLivePreview} from "@/hooks/use-live-preview";
+import {useMachine} from "@/lib/utils/machine-context.tsx";
 
 export const LivePreview = () => {
-  const [livePreviewTrigger, , livePreview] = useLivePreview();
-  useEffect(() => {
-    const interval = setInterval(() => {
-      livePreviewTrigger();
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    const [livePreviewTrigger, , livePreview] = useLivePreview();
+    const {machine} = useMachine();
+    useEffect(() => {
+        const interval = setInterval(() => {
+            livePreviewTrigger();
+        }, 10000000000);
+        return () => clearInterval(interval);
+    }, []);
 
-  return <ImagePreview image={livePreview.image} />;
+    return <>
+        A:{machine}
+        <ImagePreview image={livePreview.image}/>
+    </>
 };
