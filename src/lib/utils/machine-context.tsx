@@ -2,13 +2,17 @@ import {createContext, type FC, type ReactNode, useContext, useState} from 'reac
 
 // Define the shape of the context
 interface MachineContextType {
-    machine: string;
-    changeMachine: (machine: string) => void;
+    machine: Machine;
+    changeMachine: (machine: Machine) => void;
+}
+
+interface Machine {
+    ip: string;
+    name: string
 }
 
 // Create the Context with a default value
-const MachineContext = createContext<MachineContextType | undefined>(
-    undefined);
+const MachineContext = createContext<MachineContextType>({} as MachineContextType);
 
 // Custom hook to use the MachineContext
 export const useMachine = (): MachineContextType => {
@@ -28,9 +32,8 @@ interface MachineProviderProps {
 }
 
 export const MachineProvider: FC<MachineProviderProps> = ({children}) => {
-    const [machine, setMachine] = useState<string>("ooo");
-
-    const changeMachine = (machine: string) => {
+    const [machine, setMachine] = useState<Machine>({} as Machine)
+    const changeMachine = (machine: Machine) => {
         setMachine(() => machine);
     };
 
